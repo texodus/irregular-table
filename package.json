@@ -28,7 +28,7 @@
         "build": "npm-run-all -p build:*",
         "clean": "rimraf dist",
         "declarations": "tsc -b declarationsconfig.json",
-        "docs": "jsdoc2md src/js/index.js --separators > api.md",
+        "docs": "node scripts/sync_gist.js && jsdoc2md src/js/index.js --separators > api.md && (cd docs && yarn build)",
         "fix": "eslint --fix src features/*.md examples/*.md examples/*.html && prettier --write features/*.md",
         "lint": "npm-run-all lint:*",
         "lint:eslint": "eslint src features/*.md examples/*.md examples/*.html",
